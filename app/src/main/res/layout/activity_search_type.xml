@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_type_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+        android:id="@+id/search_type_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/search_type_toolbar_button_back"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/button_click"
+                android:src="@drawable/ic_arrow_back_white_24dp"
+                android:contentDescription="@string/button_back" />
+
+            <EditText
+                android:id="@+id/search_type_toolbar_input"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:maxLines="1"
+                android:textColor="@color/white"/>
+
+            <ImageButton
+                android:id="@+id/search_type_toolbar_button_search"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_click"
+                android:src="@drawable/ic_search_white_24dp" />
+
+        </LinearLayout>
+    </Toolbar>
+
+    <Spinner
+        android:id="@+id/search_type_category_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spinner_height"
+        android:layout_below="@id/search_type_toolbar"
+        android:entries="@array/category_search">
+    </Spinner>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/search_type_swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_type_category_spinner">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/search_type_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

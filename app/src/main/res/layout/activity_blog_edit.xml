@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BlogEditActivity">
+
+    <Toolbar
+        android:id="@+id/edit_page_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary">
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/edit_page_button_back"
+                android:layout_width="@dimen/toolbar_button_width"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/button_click"
+                android:src="@drawable/ic_arrow_back_white_24dp"
+                android:contentDescription="@string/button_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size"
+                android:text="@string/blog_edit_title" />
+
+            <ImageButton
+                android:id="@+id/edit_page_button_send"
+                android:layout_width="@dimen/toolbar_button_width"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_click"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_send_white_24dp"
+                android:contentDescription="@string/button_send" />
+
+        </RelativeLayout>
+    </Toolbar>
+
+    <ScrollView
+        android:id="@+id/edit_page_scrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_page_toolbar"
+        android:layout_above="@id/edit_page_edit_bar">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_page_title_input"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_title_height"
+                android:hint="@string/input_blog_title"
+                android:singleLine="true" />
+
+            <com.reki.dotBlog.myView.MyEditText
+                android:id="@+id/edit_page_content_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_page_title_input"
+                android:gravity="start"
+                android:hint="@string/input_blog_content"
+                android:minHeight="700dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:orientation="vertical"
+                android:layout_below="@id/edit_page_content_input">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_category"/>
+
+                <Spinner
+                    android:id="@+id/edit_page_category_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spinner_height"
+                    android:entries="@array/category">
+                </Spinner>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/edit_page_edit_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_toolbar_height"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/edit_page_button_title"
+            android:layout_width="@dimen/edit_button_width"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_title_white_24dp"
+            android:background="@drawable/button_click"/>
+
+        <ImageButton
+            android:id="@+id/edit_page_button_bold"
+            android:layout_width="@dimen/edit_button_width"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_format_bold_white_24dp"
+            android:background="@drawable/button_click"/>
+
+        <ImageButton
+            android:id="@+id/edit_page_button_insert_photo"
+            android:layout_width="@dimen/edit_button_width"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_insert_photo_white_24dp"
+            android:background="@drawable/button_click"/>
+
+        <ImageButton
+            android:id="@+id/edit_page_button_insert_link"
+            android:layout_width="@dimen/edit_button_width"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_insert_link_white_24dp"
+            android:background="@drawable/button_click"/>
+    </LinearLayout>
+</RelativeLayout>

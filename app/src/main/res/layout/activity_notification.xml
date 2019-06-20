@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+        android:id="@+id/notification_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:text="@string/notification_title" />
+        </RelativeLayout>
+    </Toolbar>
+
+    <LinearLayout
+        android:id="@+id/notification_tab_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/notification_toolbar">
+        <Button
+            android:id="@+id/notification_tab_comment"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:stateListAnimator="@null"
+            android:text="@string/button_comment"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"/>
+        <Button
+            android:id="@+id/notification_tab_reply"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:stateListAnimator="@null"
+            android:text="@string/button_reply"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/notification_swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notification_tab_container"
+        android:layout_above="@id/notification_nav_bar">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/notification_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/notification_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_bar_height"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/notification_nav_bar_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_home_white_24dp"
+            android:background="@drawable/button_click"/>
+
+        <ImageButton
+            android:id="@+id/notification_nav_bar_category"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_category_white_24dp"
+            android:background="@drawable/button_click"/>
+
+        <ImageButton
+            android:id="@+id/notification_nav_bar_write_blog"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_edit_white_24dp"
+            android:background="@drawable/button_click"/>
+
+        <ImageButton
+            android:id="@+id/notification_nav_bar_notification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/nav_bar_notifications"
+            android:background="@drawable/button_click"/>
+
+        <ImageButton
+            android:id="@+id/notification_nav_bar_my_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_my_info_white_24dp"
+            android:background="@drawable/button_click"/>
+    </LinearLayout>
+</RelativeLayout>

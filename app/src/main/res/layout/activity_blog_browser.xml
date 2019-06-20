@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/blog_browser_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+        android:id="@+id/blog_browser_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/blog_browser_toolbar_button_back"
+                android:layout_width="@dimen/toolbar_button_width"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_click"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_arrow_back_white_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/blog_browser_title"
+                android:textSize="@dimen/title_text_size"
+                android:textColor="@color/white"/>
+
+            <ImageButton
+                android:id="@+id/blog_browser_toolbar_button_more"
+                android:layout_width="@dimen/toolbar_button_width"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_click"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_more_horiz_white_24dp" />
+
+        </RelativeLayout>
+    </Toolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/blog_browser_swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/blog_browser_toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/blog_browser_title_content_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin">
+
+                <TextView
+                    android:id="@+id/blog_browser_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/title_text_size"
+                    android:textColor="@color/black"/>
+
+                <RelativeLayout
+                    android:id="@+id/blog_browser_publisher_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/blog_browser_title">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/blog_browser_avatar"
+                        android:layout_width="@dimen/avatar_height_width"
+                        android:layout_height="@dimen/avatar_height_width"
+                        android:layout_margin="@dimen/normal_margin"/>
+                    <TextView
+                        android:id="@+id/blog_browser_publisher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/blog_browser_avatar"
+                        android:layout_margin="@dimen/normal_margin"/>
+                    <TextView
+                        android:id="@+id/blog_browser_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="@dimen/normal_margin"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/blog_browser_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/blog_browser_publisher_container"
+                    android:textSize="@dimen/content_text_size"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white" />
+
+            <RelativeLayout
+                android:id="@+id/blog_browser_comment_reply_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/blog_browser_title_content_container"
+                android:layout_above="@id/blog_browser_mini_comment_reply_input_container">
+
+                <TextView
+                    android:id="@+id/blog_browser_comment_reply_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/comment_tips"
+                    android:textSize="@dimen/content_text_size"
+                    android:textColor="@color/white"
+                    android:background="@color/colorPrimary"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/blog_browser_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/blog_browser_comment_reply_header">
+                </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/blog_browser_mini_comment_reply_input_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mini_comment_reply_height"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimary">
+
+                <EditText
+                    android:id="@+id/blog_browser_comment_input"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/normal_margin"
+                    android:textColor="@color/white"
+                    android:hint="@string/input_comment"/>
+
+                <ImageButton
+                    android:id="@+id/blog_browser_button_favorite"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_star_white_24dp"
+                    android:background="@drawable/button_click"/>
+
+                <ImageButton
+                    android:id="@+id/blog_browser_button_send"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_send_white_24dp"
+                    android:background="@drawable/button_click"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>

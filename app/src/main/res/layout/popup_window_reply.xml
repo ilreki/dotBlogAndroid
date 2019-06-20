@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_window_reply_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/popup_window_reply_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_delete"
+        android:visibility="gone"
+        android:stateListAnimator="@null"
+        android:background="@drawable/popup_window_button_click" />
+
+    <Button
+        android:id="@+id/popup_window_reply_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_report"
+        android:stateListAnimator="@null"
+        android:background="@drawable/popup_window_button_click" />
+
+    <Button
+        android:id="@+id/popup_window_reply_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel"
+        android:stateListAnimator="@null"
+        android:background="@drawable/popup_window_button_click" />
+
+</LinearLayout>

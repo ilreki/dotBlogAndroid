@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/normal_margin"
+    android:clickable="true">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/reply_view_avatar"
+        android:layout_width="@dimen/avatar_height_width"
+        android:layout_height="@dimen/avatar_height_width"
+        android:layout_margin="@dimen/normal_margin"/>
+
+    <TextView
+        android:id="@+id/reply_view_publisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_margin"
+        android:layout_toEndOf="@id/reply_view_avatar"/>
+
+    <TextView
+        android:id="@+id/reply_view_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_margin"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reply_view_avatar"
+        android:layout_margin="@dimen/normal_margin">
+
+        <TextView
+            android:id="@+id/reply_view_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/comment_reply_content_margin_left"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/comment_browser_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+        android:id="@+id/comment_browser_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/comment_browser_toolbar_button_close"
+                android:layout_width="@dimen/toolbar_button_width"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_click"
+                android:src="@drawable/ic_close_white_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size"
+                android:text="@string/comment_browser_title" />
+
+            <ImageButton
+                android:id="@+id/comment_browser_toolbar_button_more"
+                android:layout_width="@dimen/toolbar_button_width"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/button_click"
+                android:src="@drawable/ic_more_horiz_white_24dp" />
+        </RelativeLayout>
+    </Toolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/comment_browser_swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comment_browser_toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/comment_browser_comment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/comment_browser_mini_comment_reply_input_container">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/comment_browser_comment_avatar"
+                    android:layout_width="@dimen/avatar_height_width"
+                    android:layout_height="@dimen/avatar_height_width"
+                    android:layout_margin="@dimen/normal_margin"/>
+
+                <TextView
+                    android:id="@+id/comment_browser_comment_publisher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:layout_toEndOf="@id/comment_browser_comment_avatar"/>
+
+                <TextView
+                    android:id="@+id/comment_browser_comment_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"/>
+
+                <RelativeLayout
+                    android:id="@+id/comment_browser_comment_content_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_margin"
+                    android:layout_below="@id/comment_browser_comment_avatar">
+                    <TextView
+                        android:id="@+id/comment_browser_comment_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/comment_reply_content_margin_left"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/comment_browser_reply_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/comment_browser_comment_content_container"
+                    android:text="@string/reply_tips"
+                    android:textSize="@dimen/content_text_size"
+                    android:textColor="@color/white"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/comment_browser_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/comment_browser_reply_header">
+                </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/comment_browser_mini_comment_reply_input_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mini_comment_reply_height"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimary">
+
+                <EditText
+                    android:id="@+id/comment_browser_reply_input"
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/normal_margin"
+                    android:textColor="@color/white"
+                    android:hint="@string/input_reply"/>
+
+                <ImageButton
+                    android:id="@+id/comment_browser_button_send"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_send_white_24dp"
+                    android:background="@drawable/button_click"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>
